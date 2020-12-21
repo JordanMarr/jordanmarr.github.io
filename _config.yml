@@ -1,1 +1,3 @@
+# Site Settings
 theme: jekyll-theme-hacker
+url: https://jordanmarr.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
