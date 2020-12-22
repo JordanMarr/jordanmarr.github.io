@@ -3,7 +3,7 @@
 
 I'm very happy to announce that my PR to add SSDT support to SQLProvider has been merged and the new release is now available on [NuGet](https://www.nuget.org/packages/SQLProvider/)!  🎉
 
-TLDR; you can now generate table entities with a path to a local SSDT project!
+TL;DR you can now generate table entities with a path to a local SSDT project!
 
 ## What is SQLProvider?
 
