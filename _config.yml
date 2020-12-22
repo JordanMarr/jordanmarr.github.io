@@ -1,3 +1,7 @@
 # Site Settings
 remote_theme: cotes2020/jekyll-theme-chirpy
 # theme: jekyll-theme-hacker
+
+plugins:
+  - jekyll-remote-theme
+  
