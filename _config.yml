@@ -1,7 +1,6 @@
 # Site Settings
-# remote_theme: "mmistakes/minimal-mistakes@4.21.0"
+remote_theme: cotes2020/jekyll-theme-chirpy
 # theme: jekyll-theme-hacker
-remote_theme: broccolini/swiss
 theme_color: black
 plugins:
   - jekyll-remote-theme
