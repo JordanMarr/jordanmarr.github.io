@@ -1,5 +1,5 @@
 # Site Settings
-remote_theme: cotes2020/jekyll-theme-chirpy
+remote_theme: mmistakes/jekyll-theme-basically-basic
 # theme: jekyll-theme-hacker
 theme_color: black
 plugins:
