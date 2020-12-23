@@ -3,7 +3,7 @@ remote_theme: bitbrain/jekyll-dash
 
 # theme: jekyll-theme-hacker
 
-footer: 'follow me on <a href="https://twitter.com/jordan_n_marr">twitter</a>'
+url: https://jordanmarr.github.io
 
 plugins:
   - jekyll-remote-theme
