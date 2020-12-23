@@ -2,9 +2,10 @@
 remote_theme: jekyll/minima
 
 minima:
+  skin: solarized-dark
   social_links:
-    twitter: jekyllrb
-    github: jekyll
+    twitter: jordan_n_marr
+    github: JordanMarr
 
 dash:  
     social_links:
