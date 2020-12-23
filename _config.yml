@@ -1,5 +1,8 @@
 # Site Settings
-#remote_theme: bitbrain/jekyll-dash
+remote_theme: jekyll/minima
+
+minima:
+  skin: dark
 
 dash:  
     social_links:
@@ -10,7 +13,7 @@ dash:
           icon: github-square
           color: purple
 
-theme: jekyll-theme-hacker
+#theme: jekyll-theme-hacker
 
 url: https://jordanmarr.github.io
 
