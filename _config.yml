@@ -2,7 +2,9 @@
 remote_theme: jekyll/minima
 
 minima:
-  skin: dark
+  social_links:
+    twitter: jekyllrb
+    github: jekyll
 
 dash:  
     social_links:
