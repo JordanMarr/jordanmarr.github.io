@@ -1,5 +1,10 @@
 # Site Settings
 remote_theme: bitbrain/jekyll-dash
+
+# jekyll-paginate
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 dash:  
     social_links:
         - url: https://twitter.com/jordan_n_marr
