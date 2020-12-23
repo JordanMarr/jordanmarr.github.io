@@ -1,13 +1,13 @@
 # Site Settings
 remote_theme: bitbrain/jekyll-dash
-
-social_links:
-    - url: https://twitter.com/jordan_n_marr
-      icon: twitter-square
-      color: cyan
-    - url: https://github.com/JordanMarr
-      icon: github-square
-      color: purple
+dash:  
+    social_links:
+        - url: https://twitter.com/jordan_n_marr
+          icon: twitter-square
+          color: cyan
+        - url: https://github.com/JordanMarr
+          icon: github-square
+          color: purple
 
 # theme: jekyll-theme-hacker
 
