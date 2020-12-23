@@ -3,7 +3,7 @@ remote_theme: b2a3e8/jekyll-theme-console
 # theme: jekyll-theme-hacker
 
 header_pages:
-  - index.md
+  - readme.md
 
 footer: 'follow me on <a href="https://twitter.com/jordan_n_marr">twitter</a>'
 
