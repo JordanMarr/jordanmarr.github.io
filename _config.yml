@@ -1,9 +1,5 @@
 # Site Settings
-remote_theme: bitbrain/jekyll-dash
-
-# jekyll-paginate
-paginate: 5
-paginate_path: "/fsharp/"
+#remote_theme: bitbrain/jekyll-dash
 
 dash:  
     social_links:
@@ -14,7 +10,7 @@ dash:
           icon: github-square
           color: purple
 
-# theme: jekyll-theme-hacker
+theme: jekyll-theme-hacker
 
 url: https://jordanmarr.github.io
 
