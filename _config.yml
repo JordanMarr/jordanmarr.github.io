@@ -1,7 +1,7 @@
 # Site Settings
-remote_theme: kirqe/autm-rb
+#remote_theme: kirqe/autm-rb
 
-# theme: jekyll-theme-hacker
+theme: jekyll-theme-hacker
 
 footer: 'follow me on <a href="https://twitter.com/jordan_n_marr">twitter</a>'
 
