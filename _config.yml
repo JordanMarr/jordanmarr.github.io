@@ -1,9 +1,7 @@
 # Site Settings
-remote_theme: b2a3e8/jekyll-theme-console
-# theme: jekyll-theme-hacker
+remote_theme: sujaykundu777/devlopr-jekyll
 
-header_pages:
-  - readme.md
+# theme: jekyll-theme-hacker
 
 footer: 'follow me on <a href="https://twitter.com/jordan_n_marr">twitter</a>'
 
