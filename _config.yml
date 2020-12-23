@@ -1,6 +1,6 @@
 # Site Settings
-remote_theme: mmistakes/jekyll-theme-basically-basic
+remote_theme: alshedivat/al-folio
 # theme: jekyll-theme-hacker
-theme_color: black
+
 plugins:
   - jekyll-remote-theme
