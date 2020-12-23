@@ -1,5 +1,5 @@
 # Site Settings
-remote_theme: alshedivat/al-folio
+remote_theme: hydecorp/hydejack
 # theme: jekyll-theme-hacker
 
 plugins:
