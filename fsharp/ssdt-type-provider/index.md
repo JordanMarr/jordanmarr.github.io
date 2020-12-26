@@ -72,9 +72,9 @@ There are a few limitations to using the new SSDT provider:
 
 Only very simple views are being parsed for this first release. Views that have any nesting or functions will likely have missing columns. Over time, I hope to improve the parser so that it can handle many of the more common views.
 
-#### No support for Stored Procs and Functions (yet)
+#### No support for Functions (yet)
 
-The first version of SSDT provider does not yet implement support for stored procs or functions. This is planned for a future release, but I was anxious to get v1 released before Christmas, so concessions were made! 🎄
+The first version of SSDT provider does not yet implement support for functions. This is planned for a future release, but I was anxious to get v1 released before Christmas, so concessions were made! 🎄
 
 #### No support for the "individuals" feature
 
