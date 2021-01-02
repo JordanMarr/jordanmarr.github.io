@@ -55,12 +55,11 @@ The new SSDT provider can be created by using the new `MSSQLSERVER_SSDT` databas
 ```F#
 type DB = SqlDataProvider<
             Common.DatabaseProviderTypes.MSSQLSERVER_SSDT,
-            ResolutionPath = resPath,
             SsdtPath = ssdtPath>
 
 ```
 
-[Click here to RTFM](https://fsprojects.github.io/SQLProvider/core/mssqlssdt.html)
+[Click here to read the docs](https://fsprojects.github.io/SQLProvider/core/mssqlssdt.html)
 
 The main advantages to using the SSDT provider is that it allows you to generate types without the need for a live database connection. This makes it easier to make schema changes without having to invalidate the cache file. It also eliminates problems on the build server.
 
@@ -68,9 +67,8 @@ The main advantages to using the SSDT provider is that it allows you to generate
 
 There are a few limitations to using the new SSDT provider:
 
-#### Limited support for views
-
-Only very simple views are being parsed for this first release. Views that have any nesting or functions will likely have missing columns. Over time, I hope to improve the parser so that it can handle many of the more common views.
+#### No UDTs
+Columns with User Defined Types are not supported.
 
 #### No support for Functions (yet)
 
