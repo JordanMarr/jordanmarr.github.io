@@ -50,7 +50,7 @@ The beauty of this approach is that it allows you keep your schema changes in so
 
 ## SQLProvider + SSDT!
 
-The new SSDT provider can be created by using the new `MSSQLSERVER_SSDT` database vendor type, along with the `SsdtPath` to the local SSDT project, and a `ResolutionPath` to the `Microsoft.SqlServer.Management.SqlParser` assembly (which is used to parse the .sql create scripts).
+The new SSDT provider can be created by using the new `MSSQLSERVER_SSDT` database vendor type, along with an `SsdtPath` that points to an SSDT .dacpac file.
 
 ```F#
 type DB = SqlDataProvider<
