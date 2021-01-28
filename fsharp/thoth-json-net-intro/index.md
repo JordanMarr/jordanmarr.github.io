@@ -119,12 +119,48 @@ The root entity is the order, so we will create an `orderDecoder` function at th
 
 At the very top we can create our `orderItemDecoder` and `shipmentDecoder` functions that will be used by the `orderDecoder`.
 
+#### Order Item Decoder
+
+```fsharp
+let orderItemDecoder : Decoder<OrderItem> =
+    Decode.object (
+        fun get ->
+            { OrderItem.Sku = get.Required.Field "sku" Decode.string }
+    )
+```
+
 The `orderItemDecoder` is the most simple. This function will decode each item in the "orderData/items" array.
 It has a single required field (that means we expect it to always exist in the json). The last parameter, `Decode.string` means that `get` will return a `string` value. 
 You don't have to annotate `orderItemDecoder` with `: Decoder<OrderItem>`, but it can be helpful to add some strong typing while you are creating it.
 
+#### Shipment Decoder
+
+```fsharp
+let shipmentDecoder : Decoder<Shipment> = 
+    Decode.object (
+        fun get -> 
+            { Shipment.Recipient = get.Optional.At ["shipTo"; "name"] Decode.string
+              Shipment.Address = get.Required.At ["shipTo"; "address1"] Decode.string
+              Shipment.Town = get.Required.At ["shipTo"; "town"] Decode.string
+              Shipment.PostCode = get.Required.At ["shipTo"; "postcode"] Decode.string }
+    )
+```
+
 Moving on to the `shipmentDecoder`, notice that instead of using `get.Required.Field`, we have switched to `get.Required.At`.  The difference is that `get.Required.At` takes a list of strings, which allows you to drill into a path of multiple levels, whereas `get.Required.Filed` just takes a string to reference a field at the current level.
 The second thing to notice is that `Shipment.Recipient` uses `get.Optional` instead of `get.Required`. This will return an `option` value, so you must make sure that you are mapping the value into an `option` field. 
+
+#### Order Decoder
+
+```fsharp
+let orderDecoder : Decoder<Order> = 
+    Decode.object (
+        fun get ->
+            { Order.AccountName = get.Required.At ["destination"; "name"] Decode.string
+              Order.OrderId = get.Required.At ["orderData"; "sourceOrderId"] Decode.string
+              Order.Items = get.Required.At ["orderData"; "items"] (Decode.list orderItemDecoder)
+              Order.Shipments = get.Required.At ["orderData"; "shipments"] (Decode.list shipmentDecoder) }
+    )
+```
 
 Finally, we come to the root `orderDecoder`. The most important detail to notice here is that we can populate the `Order.Items` and `Order.Shipments` properties by using the `Decode.list` function inconjunction with our custom decoders above: `(Decode.list orderItemDecoder)` and `(Decode.list shipmentDecoder)`.
 
