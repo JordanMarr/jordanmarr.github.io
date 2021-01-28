@@ -130,7 +130,7 @@ let orderItemDecoder : Decoder<OrderItem> =
 ```
 
 The `orderItemDecoder` is the most simple. This function will decode each item in the "orderData/items" array.
-It has a single required field (that means we expect it to always exist in the json). The last parameter, `Decode.string` means that `get` will return a `string` value. 
+It has a single required field (that means we expect it to always exist in the json). The last parameter, `Decode.string`, is a built-in primitive decoder that will attempt to parse the json field as a `string`. 
 You don't have to annotate `orderItemDecoder` with `: Decoder<OrderItem>`, but it can be helpful to add some strong typing while you are creating it.
 
 #### Shipment Decoder
