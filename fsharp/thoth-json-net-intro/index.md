@@ -42,7 +42,7 @@ let orderJson = """
         "shipTo": {
           "name": "John Doe",
           "companyName": "Acme",
-          "address1": "1234 Main St.",
+          "address1": "1234 Main St",
           "town": "Capitol",
           "postcode": "12345",
           "isoCountry": "US"
@@ -146,7 +146,7 @@ Order:
   OrderId = "1234512345"
   Items = [{ Sku = "Business Cards" }]
   Shipments = [{ Recipient = Some "John Doe"
-                 Address = "1234 Main St."
+                 Address = "1234 Main St"
                  Town = "Capitol"
                  PostCode = "12345" }] }
 ```
