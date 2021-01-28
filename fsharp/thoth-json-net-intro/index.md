@@ -4,7 +4,8 @@ Thoth.Json.Net has become the first tool I reach for when I need to map incoming
 
 However, the first time I tried to use it, I stumbled because I had never encountered a library like it in all my days as a C# developer. So I wanted to create this quick intro to provide some common examples to get you started (or to refresh your memory). 
 
-So why not just use Newtonsoft.Json? Newtonsoft is great if you already have a model that closely matches the structure of the incoming json. But if you don't, it can be cumbersome to create mappings via attributes and weird adapter classes. Furthermore, you may not want to litter your domain entities with parsing attributes. 
+## Why Not Use Newtonsoft.Json? 
+Newtonsoft is great if you already have a model that closely matches the structure of the incoming json. But if you don't, it can be cumbersome to create mappings via attributes and weird adapter classes. Furthermore, you may not want to litter your domain entities with parsing attributes. 
 The typical use case that I like to use Thoth for is when I need to deserialize json from an external source that I didn't create. 
 
 This is where Thoth.Json.Net shines. It allows you to quickly and easily create json "decoder" functions to map your incoming json to your types. 
