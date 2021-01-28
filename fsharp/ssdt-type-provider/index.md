@@ -9,14 +9,14 @@ TL;DR you can now generate table entities with a path to a local SSDT project!
 
 SQLProvider is an F# database library that can generate a strongly typed interface to your database at design time with nothing but a simple connection string. It does this by creating a connection to the database at design-time via F# Type Provider feature.
 
-```F#
+```fsharp
 type DB = SqlDataProvider<Common.DatabaseProviderTypes.MSSQLSERVER,
                              connectionString>
 ```
 
 Once the types have been generated, you can then create queries with generated entities using the query computation expression.
 
-```F#
+```fsharp
 let tasksWithCategories =
     query {
         for p in ctx.Dbo.Projects do
@@ -52,7 +52,7 @@ The beauty of this approach is that it allows you keep your schema changes in so
 
 The new SSDT provider can be created by using the new `MSSQLSERVER_SSDT` database vendor type, along with an `SsdtPath` that points to an SSDT .dacpac file.
 
-```F#
+```fsharp
 type DB = SqlDataProvider<
             Common.DatabaseProviderTypes.MSSQLSERVER_SSDT,
             SsdtPath = ssdtPath>
