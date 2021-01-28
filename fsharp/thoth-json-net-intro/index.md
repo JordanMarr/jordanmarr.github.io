@@ -116,7 +116,7 @@ The root entity is the order, so we will create an `orderDecoder` function at th
 
 At the very top we can create our `orderItemDecoder` and `shipmentDecoder` functions that will be used by the `orderDecoder`.
 
-The `orderItemDecoder` is the most simple. This decoder will be to decode each item in the "orderData/items" array.
+The `orderItemDecoder` is the most simple. This function will decode each item in the "orderData/items" array.
 It has a single required field (that means we expect it to always exist in the json). The last parameter, `Decode.string` means that `get` will return a `string` value. 
 You don't have to annotate `orderItemDecoder` with `: Decoder<OrderItem>`, but it can be helpful to add some strong typing while you are creating it.
 
@@ -182,6 +182,13 @@ let personDecoder =
 match json |> Decode.fromString personDecoder with
 | Ok person -> printfn $"Person: {person}"
 | Error err -> printfn $"Error: {err}"
+```
+
+This yields the following output:
+```
+Person:
+{ FirstName = "John"
+  LastName = "Doe" }
 ```
 
 ## Conclusion
