@@ -84,6 +84,7 @@ and Shipment = {
 ### Create Thoth "Decoders"
 
 Next we will create a Thoth "decoder" function for each entity. 
+Here are all three decoders (we will look at each one individually in the next section):
 
 ```fsharp
 #r "nuget: Thoth.Json.Net"
@@ -146,7 +147,7 @@ let shipmentDecoder : Decoder<Shipment> =
     )
 ```
 
-Moving on to the `shipmentDecoder`, notice that instead of using `get.Required.Field`, we have switched to `get.Required.At`.  The difference is that `get.Required.At` takes a list of strings, which allows you to drill into a path of multiple levels, whereas `get.Required.Filed` just takes a string to reference a field at the current level.
+Moving on to the `shipmentDecoder`, notice that instead of using `get.Required.Field`, we have switched to `get.Required.At`.  The difference is that `get.Required.At` takes a list of strings which allows you to drill into a path of multiple levels, whereas `get.Required.Filed` just takes a single string that references a field at the current level.
 The second thing to notice is that `Shipment.Recipient` uses `get.Optional` instead of `get.Required`. This will return an `option` value, so you must make sure that you are mapping the value into an `option` field. 
 
 #### Order Decoder
@@ -162,7 +163,7 @@ let orderDecoder : Decoder<Order> =
     )
 ```
 
-Finally, we come to the root `orderDecoder`. The most important detail to notice here is that we can populate the `Order.Items` and `Order.Shipments` properties by using the `Decode.list` function inconjunction with our custom decoders above: `(Decode.list orderItemDecoder)` and `(Decode.list shipmentDecoder)`.
+Finally, we come to the root `orderDecoder`. The most important detail to notice here is that we can populate the `Order.Items` and `Order.Shipments` properties by using the `Decode.list` function in conjunction with our custom decoders above: `(Decode.list orderItemDecoder)` and `(Decode.list shipmentDecoder)`.
 
 
 ### Decode!
