@@ -53,13 +53,13 @@ After installing Ionide, you should now see a "SOLUTION EXPLORER" panel on the l
 * Client.fsproj
 
 ## Running the SAFE Stack App
-### Launching the Server Component:
 * Open a new Terminal in Visual Studio Code
-* `cd src/Server`
-* `dotnet run`
+* `dotnet run` 
 
-### Launching the Client Component
-* Open a new Terminal in Visual Studio Code
-* `cd src/Client`
-* `dotnet fable watch`
+That's it! `dotnet run` will run the "Build.fsproj" project which contains FAKE build script tasks that will do the following automatically:
+* install NPM dependencies (React, and other js libraries)
+* It will start the Server component (the Web API)
+* It will start the Client component (the Fable.React front end)
 
+You should be able to view the site in your browser using the port given after the build completes:
+http://127.0.0.1:8080/
