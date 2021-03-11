@@ -51,3 +51,15 @@ After installing Ionide, you should now see a "SOLUTION EXPLORER" panel on the l
 * Shared.fsproj
 * Server.fsproj
 * Client.fsproj
+
+## Running the SAFE Stack App
+### Launching the Server Component:
+* Open a new Terminal in Visual Studio Code
+* `cd src/Server`
+* `dotnet run`
+
+### Launching the Client Component
+* Open a new Terminal in Visual Studio Code
+* `cd src/Client`
+* `dotnet fable watch`
+
