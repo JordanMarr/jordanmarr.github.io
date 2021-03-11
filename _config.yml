@@ -16,7 +16,7 @@ dash:
           icon: github-square
           color: purple
 
-theme: jekyll-theme-hacker
+theme: jekyll-theme-midnight
 
 url: https://jordanmarr.github.io
 
