@@ -63,3 +63,18 @@ That's it! `dotnet run` will run the "Build.fsproj" project which contains FAKE 
 
 You should be able to view the site in your browser using the port given after the build completes:
 http://127.0.0.1:8080/
+NOTE: The current SAFE Stack beta template incorrectly displays http://0.0.0.0:8080/ -- disregard this and use http://127.0.0.1:8080/ instead!
+
+## Creating a Todo Table Schema in Azure Data Studio
+At this point we will shift gears and focus on the SQL Server schema. For this task, we will open Azure Data Studio.
+* Open Azure Data Studio
+* Install the SQL Database Projects extension
+* Install the SQL Server Schema Compare extension
+* 
+
+## Installing SQLProvider from NuGet
+Next we will install SQLProvider to the Server project:
+* Open a new terminal
+* From the "SafeTodo" root folder: `dotnet paket add SQLProvider -p Server`* 
+* Hit `CTRL`+`SHIFT`+`P` to bring up the console
+* Find and select `Database Projects: Create Project from Database`
