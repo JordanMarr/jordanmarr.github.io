@@ -9,10 +9,11 @@ In this post we will cover the following:
 * Connecting your SAFE Stack application to SQL Server using the new SSDT type provider
 
 To get started, you will need the following:
-* .NET 5
+* .NET 5 CLI
 * Visual Studio Code
-  * Ionide Extension
-  * The SSDT Extension
+  * Extension: Ionide
+* Azure Data Studio
+  * Extension: SQL Database Projects
 
 ## Installing the SAFE Stack Template
 Recently, Fable 3 (the F# to JavaScript transpiler) was released. It boasted cool new features and faster compile times.
@@ -31,7 +32,22 @@ As of now, it is this: `dotnet new --install SAFE.Template::3.0.0-beta001`
 Assuming you have already installed the .NET 5 CLI, run the command to install the template.
 
 ## Creating a SAFE Stack App
-Now we just need to run the new "SAFE" template.
-`dotnet new SAFE -o SafeTodo`
-* `-o SafeTodo` will create a "SafeTodo" subfolder that contains a solution file named "SafeTodo.sln"
+1) Run the new "SAFE" template.
+* `dotnet new SAFE -o SafeTodo` (`-o' will create a "SafeTodo" subfolder witha  "SafeTodo.sln" solution file)
+* Change to the new "SafeTodo" directory: `cd SafeTodo` (on Windows)
 
+2) We need to restore the command line tools that we will use to build and run our SAFE Stack application:
+* `dotnet tool restore` (this should install "paket", which is like NuGet but with some additional features, and the "fable" transpiler).
+
+3) Next we need to restore NuGet dependencies for the project:
+* `dotnet restore SafeTodo.sln`
+
+Now we can open our new app in Visual Studio Code: 
+* `code .` to open Visual Studio to the current folder.
+
+Note: If you haven't already installed the Ionide extension in Visual Studio Code, you should see a prompt in the bottom right corner to install the Recommended Extensions (which is Ionide). Do that.
+
+After installing Ionide, you should now see a "SOLUTION EXPLORER" panel on the left that shows a "src" folder with your three SAFE Stack F# projects: 
+* Shared.fsproj
+* Server.fsproj
+* Client.fsproj
