@@ -123,25 +123,127 @@ In this step, we will use Azure Data Studio with the "SQL Database Projects" ext
 
 ![image](https://user-images.githubusercontent.com/1030435/111042131-cc2ceb00-8409-11eb-809f-d08ef10932ee.png)
 
-## Use "Schema Compare" to Copy Table Schema to the SQL Project
-1) From the Azure Data Studio "Projects" tab, select "Schema Compare". (The "SQL Server Schema Compare" extension is automatically installed with "SQL Database Projects".)
-2) Configure the comparison window so that the SQL Project ".dacpac" file is the "Target" by clicking the "Switch Directions" button.
-3) Configure the "Source" to point to your "SafeTodo" database.
-![image](https://user-images.githubusercontent.com/1030435/111043700-ee2a6b80-8411-11eb-803e-7a9a8008a869.png)
+4) You should now be able to view your SQL Project by clicking the "Projects" tab in Azure Data Studio.
 
-4) Click "Save .scmp" file, and save it with your project:
-`C:\_github\SafeTodo\ssdt\SafeTodoDB\SchemaCompare`
+![image](https://user-images.githubusercontent.com/1030435/111051915-b0830e00-8424-11eb-9f29-e31eb58ed502.png)
 
-5) Click the "Compare" button to detect differences between the database and your SQL Project. It should show that the "Todos" table needs to be added to your SQL Project:
-![image](https://user-images.githubusercontent.com/1030435/111043809-aa843180-8412-11eb-9298-b1d6eeb921c1.png)
+5) Finally, right click the SafeTodoDB project and select "Build". This will create a .dacpac file which we will use in the next step.
 
 
+## Create a TodoRepository Using the new SSDT provider in SQLProvider
 
-
-
-## Installing SQLProvider from NuGet
+### Installing SQLProvider from NuGet
 Next we will install SQLProvider to the Server project:
 - Open a new terminal
 - From the "SafeTodo" root folder: `dotnet paket add SQLProvider -p Server`* 
 - Hit `CTRL`+`SHIFT`+`P` to bring up the console
 - Find and select `Database Projects: Create Project from Database`
+
+### Initialize Type Provider
+Next we will wire up our type provider to generate database types based on the compiled .dacpac file.
+
+1) In the Server project, create a new file, `Database.fs`. (this should be above `Server.fs`).
+
+``` fsharp
+module Database
+open FSharp.Data.Sql
+
+[<Literal>]
+let ssdtPath = @".\ssdt\SafeTodoDB\bin\Debug\SafeTodoDB.dacpac"
+
+type DB = 
+    SqlDataProvider<
+        Common.DatabaseProviderTypes.MSSQLSERVER_SSDT, 
+        SsdtPath = ssdtPath,
+        UseOptionTypes = true
+    >
+
+let createContext (connectionString: string) =
+    DB.GetDataContext(connectionString)
+```
+
+2) Create `TodoRepository.fs` below `Database.fs`.
+
+``` fsharp
+module TodoRepository
+open FSharp.Data.Sql
+open Database
+open Shared
+
+/// Get all todos that have not been marked as "done". 
+let getTodos (db: DB.dataContext) = 
+    query {
+        for todo in db.Dbo.Todos do
+        where (not todo.IsDone)
+        select 
+            { Shared.Todo.Id = todo.Id
+              Shared.Todo.Description = todo.Description }
+    }
+    |> List.executeQueryAsync
+
+let addTodo (db: DB.dataContext) (todo: Shared.Todo) =
+    async {
+        let t = db.Dbo.Todos.Create()
+        t.Id <- todo.Id
+        t.Description <- todo.Description
+        t.IsDone <- false
+
+        do! db.SubmitUpdatesAsync()
+    }
+```
+
+3) Create `TodoController.fs` below `TodoRepository.fs`.
+
+``` fsharp
+module TodoController
+open Database
+open Shared
+
+let getTodos (db: DB.dataContext) = 
+    TodoRepository.getTodos db
+
+let addTodo (db: DB.dataContext) (todo: Todo) = 
+    async {
+        if Todo.isValid todo.Description then
+            do! TodoRepository.addTodo db todo
+            return todo
+        else 
+            return failwith "Invalid todo"
+    }    
+
+```
+
+4) Finally, replace the stubbed todosApi implementation in `Server.fs` with our type provided implementation.
+
+``` fsharp
+module Server
+
+open Fable.Remoting.Server
+open Fable.Remoting.Giraffe
+open Saturn
+
+open Shared
+
+let todosApi =
+    let db = Database.createContext @"Data Source=localhost\SQLEXPRESS;Initial Catalog=SafeTodoDB;Integrated Security=True"
+    { getTodos = fun () -> TodoController.getTodos db
+      addTodo = TodoController.addTodo db }
+
+let webApp =
+    Remoting.createApi()
+    |> Remoting.withRouteBuilder Route.builder
+    |> Remoting.fromValue todosApi
+    |> Remoting.buildHttpHandler
+
+let app =
+    application {
+        url "http://0.0.0.0:8085"
+        use_router webApp
+        memory_cache
+        use_static "public"
+        use_gzip
+    }
+
+run app
+```
+
