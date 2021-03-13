@@ -71,9 +71,11 @@ NOTE: The current SAFE Stack beta template incorrectly displays http://0.0.0.0:8
 
 ### Connecting to a SQL Server Instance
 1) In the "Connections" tab, click the "New Connection" button
+
 ![image](https://user-images.githubusercontent.com/1030435/111041187-26777d00-8405-11eb-9260-5d885b0ff640.png)
 
 2) Enter your connection details, leaving the "Database" dropdown set to "<Default>".
+
 ![image](https://user-images.githubusercontent.com/1030435/111041401-fbd9f400-8405-11eb-9d38-3444dfdc15f6.png)
 
 ### Creating a new "SafeTodo" Database
@@ -98,16 +100,42 @@ GO
 
 NOTE: Alteratively, you can install the "New Database" extension in Azure Data Studio which gives you a "New Database" option when right clicking the "Databases" folder.
 
+### Create a "Todos" Table
+``` SQL
+CREATE TABLE [dbo].[Todos]
+(
+  [Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+  [Description] NVARCHAR(500) NOT NULL,
+  [IsDone] BIT NOT NULL
+)
+```
+
 ## Creating an SSDT Project (.sqlproj)
 At this point, you should have a SAFE Stack solution and an empty "SafeTodo" SQL Server database.
 In this step, we will use Azure Data Studio with the "SQL Database Projects" extension to create a new SSDT (SQL Server Data Tools) "SQL Project" that will live in our SAFE Stack .sln. 
 
 1) Install the "SQL Database Projects" extension.
 2) Right click the SafeTodo database and choose "Create Project From Database" (this option is added by the "SQL Database Projects" extension)
+
 ![image](https://user-images.githubusercontent.com/1030435/111041910-99cebe00-8408-11eb-9fcf-9271b40984d7.png)
 
 3) Configure a path within your SAFE Stack solution folder and a project name and then click "Create". NOTE: If you choose to create an "ssdt" subfolder as I did, you will need to manually create this subfolder first.
+
 ![image](https://user-images.githubusercontent.com/1030435/111042131-cc2ceb00-8409-11eb-809f-d08ef10932ee.png)
+
+## Use "Schema Compare" to Copy Table Schema to the SQL Project
+1) From the Azure Data Studio "Projects" tab, select "Schema Compare". (The "SQL Server Schema Compare" extension is automatically installed with "SQL Database Projects".)
+2) Configure the comparison window so that the SQL Project ".dacpac" file is the "Target" by clicking the "Switch Directions" button.
+3) Configure the "Source" to point to your "SafeTodo" database.
+![image](https://user-images.githubusercontent.com/1030435/111043700-ee2a6b80-8411-11eb-803e-7a9a8008a869.png)
+
+4) Click "Save .scmp" file, and save it with your project:
+`C:\_github\SafeTodo\ssdt\SafeTodoDB\SchemaCompare`
+
+5) Click the "Compare" button to detect differences between the database and your SQL Project. It should show that the "Todos" table needs to be added to your SQL Project:
+![image](https://user-images.githubusercontent.com/1030435/111043809-aa843180-8412-11eb-9298-b1d6eeb921c1.png)
+
+
 
 
 
