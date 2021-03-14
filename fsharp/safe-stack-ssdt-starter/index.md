@@ -81,7 +81,7 @@ NOTE: The current SAFE Stack beta template incorrectly displays http://0.0.0.0:8
 ### Creating a new "SafeTodo" Database
 - Right click your server and choose "New Query"
 - Execute this script:
-``` SQL
+``` sql
 USE master
 GO
 IF NOT EXISTS (
@@ -101,7 +101,7 @@ GO
 _NOTE: Alternatively, if you don't want to manually create the new database, you can install the "New Database" extension in Azure Data Studio which gives you a "New Database" option when right clicking the "Databases" folder._
 
 ### Create a "Todos" Table
-``` SQL
+``` sql
 CREATE TABLE [dbo].[Todos]
 (
   [Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
