@@ -74,7 +74,7 @@ NOTE: The current SAFE Stack beta template incorrectly displays http://0.0.0.0:8
 
 ![image](https://user-images.githubusercontent.com/1030435/111041187-26777d00-8405-11eb-9260-5d885b0ff640.png)
 
-2) Enter your connection details, leaving the "Database" dropdown set to "<Default>".
+2) Enter your connection details, leaving the "Database" dropdown set to `<Default>`.
 
 ![image](https://user-images.githubusercontent.com/1030435/111041401-fbd9f400-8405-11eb-9d38-3444dfdc15f6.png)
 
