@@ -1,13 +1,14 @@
 # SAFE Stack v3 with SQLProvider SSDT Tutorial
 Posted on March 15, 2021
 
-Looking create an F# powered front end React app for for a SQL Server database and you want to get started the easy way?
-Then this blost post is for you! 
+Looking to create an F# powered React app using the new SAFE Stack v3, SQL Server and the new [SSDT F# Type Provider](https://jordanmarr.github.io/fsharp/ssdt-type-provider/)?
+Then you're in luck! This post will provide a step-by-step tutorial to get you up and running.
 
 In this post we will cover the following:
-* Creating an F# and Fable powered web site using the SAFE Stack template
-* Creating a SQL Server table schema using the SSDT extension for Visual Studio Code
-* Connecting your SAFE Stack application to SQL Server using the new SSDT type provider
+* Creating an F# and Fable 3 powered web site using the latest SAFE Stack template (that supports Fable 3)
+* Creating a SQL Server database using Azure Data Studio
+* Adding a .sqlproj to your SAFE Stack solution using the SQL Database Projects extension in Azure Data Studio
+* Creating a data module in your SAFE Stack application using the new SSDT F# Type Provider in the SQLProvider library.
 
 To get started, you will need the following:
 * .NET 5 CLI
@@ -17,16 +18,12 @@ To get started, you will need the following:
   * Extension: SQL Database Projects
 
 ## Installing the SAFE Stack Template
-Recently, Fable 3 (the F# to JavaScript transpiler) was released. It boasted cool new features and faster compile times.
-However, if you new, the hardest part is setting up your project with everything you need to get to the development happy path.
-If you're an early adopter or an F# trail blazer, then maybe you would enjoy being one of the first to create something with the new Fable 3;
-however, most of us just want to run a template that gets us up and running as quickly as possible.  
-That is where the SAFE Stack comes in.  
-Fortunately for us, the SAFE Stack v3 now supports Fable 3 and is available on NuGet (currently it is in beta).
+Fable 3 was recently released. It boasts new features, faster compile times, and a cool new way to launch as a dotnet tool. 
+While Fable 3 does have its own template to get started, it is for the front end only. The SAFE Stack takes that and adds a Giraffe powered backend and does all the complicated webpack configuration for us. Fortunately for us, SAFE Stack v3 (currently in beta) now supports Fable 3 and is available on NuGet.
 https://www.nuget.org/packages/SAFE.Template/
 
 Clicking on the link to the latest v3 link should give you the ".NET CLI" install command:
-As of now, it is this: `dotnet new --install SAFE.Template::3.0.0-beta001`
+As of now, it is: `dotnet new --install SAFE.Template::3.0.0-beta001`
 
 ![image](https://user-images.githubusercontent.com/1030435/110747226-0af55200-820c-11eb-959b-36091c140497.png)
 
