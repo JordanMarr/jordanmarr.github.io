@@ -223,7 +223,7 @@ open System
 open Shared
 
 let todosApi =
-    let db = Database.createContext @"Data Source=localhost\SQLEXPRESS;Initial Catalog=SafeTodo;Integrated Security=SSPI;"
+    let db = Database.createContext @"Data Source=.\SQLEXPRESS;Initial Catalog=SafeTodo;Integrated Security=SSPI;"
     { getTodos = fun () -> 
         async {
             let! todos = TodoController.getTodos db
