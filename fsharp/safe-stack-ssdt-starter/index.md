@@ -208,8 +208,7 @@ let addTodo (db: DB.dataContext) (todo: Todo) =
             return todo
         else 
             return failwith "Invalid todo"
-    }    
-
+    }
 ```
 
 4) Finally, replace the stubbed todosApi implementation in `Server.fs` with our type provided implementation.
@@ -220,18 +219,29 @@ module Server
 open Fable.Remoting.Server
 open Fable.Remoting.Giraffe
 open Saturn
-
+open System
 open Shared
 
 let todosApi =
-    let db = Database.createContext @"Data Source=localhost\SQLEXPRESS;Initial Catalog=SafeTodoDB;Integrated Security=True"
-    { getTodos = fun () -> TodoController.getTodos db
+    let db = Database.createContext @"Data Source=localhost\SQLEXPRESS;Initial Catalog=SafeTodo;Integrated Security=SSPI;"
+    { getTodos = fun () -> 
+        async {
+            let! todos = TodoController.getTodos db
+            return todos
+        }
       addTodo = TodoController.addTodo db }
 
+open Microsoft.AspNetCore.Http
+
+let fableRemotingErrorHandler (ex: Exception) (ri: RouteInfo<HttpContext>) = 
+    printfn "ERROR: %s" ex.Message
+    Propagate ex.Message
+    
 let webApp =
     Remoting.createApi()
     |> Remoting.withRouteBuilder Route.builder
     |> Remoting.fromValue todosApi
+    |> Remoting.withErrorHandler fableRemotingErrorHandler
     |> Remoting.buildHttpHandler
 
 let app =
@@ -244,5 +254,6 @@ let app =
     }
 
 run app
+
 ```
 
