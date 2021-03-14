@@ -5,10 +5,10 @@ Looking to create an F# powered React app using the new SAFE Stack v3, SQL Serve
 Then you're in luck! This post will provide a step-by-step tutorial to get you up and running.
 
 In this post we will cover the following:
-* Creating an F# and Fable 3 powered web site using the latest SAFE Stack template (that supports Fable 3)
+* Creating a Fable 3 powered web site using the latest SAFE Stack template
 * Creating a SQL Server database using Azure Data Studio
 * Adding a .sqlproj to your SAFE Stack solution using the SQL Database Projects extension in Azure Data Studio
-* Creating a data module in your SAFE Stack application using the new SSDT F# Type Provider in the SQLProvider library.
+* Creating a data module in your SAFE Stack application using the new SSDT Type Provider in the SQLProvider library.
 
 To get started, you will need the following:
 * .NET 5 CLI
@@ -17,9 +17,23 @@ To get started, you will need the following:
 * Azure Data Studio
   * Extension: SQL Database Projects
 
+### The Stack
+For the last two years, I have maintained a greenfield web app that is essentially a SAFE Stack app; it has been a joyful experience! My daily driver has been Visual Studio Professional which I have developed with since .NET v1.1. 
+I chose to write this post around VSCode + Ionide + Azure Data Studio because it is a cross platform stack, and I want to accommodate the many F# devs that are coming over from other backgrounds and other platforms. So this post was a learning experience for me as well!
+
+But I do want to add that VS2019 Community Edition and above has built-in SSDT .sqlproj support via the "SQL Server Data Tools" extension (available as an [option](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15) in the VS installer).  
+
 ## Installing the SAFE Stack Template
-Fable 3 was recently released. It boasts new features, faster compile times, and a cool new way to launch as a dotnet tool. 
-While Fable 3 does have its own template to get started, it is for the front end only. The SAFE Stack takes that and adds a Giraffe powered backend and does all the complicated webpack configuration for us. Fortunately for us, SAFE Stack v3 (currently in beta) now supports Fable 3 and is available on NuGet.
+Fable 3 was recently released boasting new features, faster compile times, and a cool new way to launch as a dotnet tool. 
+While Fable 3 does have its own starter template, it only covers the front end. 
+The SAFE Stack takes that and adds:
+- A backend web API powered by ASP.NET and Giraffe
+- A middle tier Shared project for entity models
+- An RPC-style communication via Fable.Remoting
+- A working webpack config
+- A FAKE powered build project that automates running and deploying your app. 
+
+The new SAFE Stack v3 (currently in beta) supports Fable 3 and is available on NuGet.
 https://www.nuget.org/packages/SAFE.Template/
 
 Clicking on the link to the latest v3 link should give you the ".NET CLI" install command:
@@ -40,12 +54,15 @@ Assuming you have already installed the .NET 5 CLI, run the command to install t
 3) Restore NuGet dependencies:
 - `dotnet paket restore`
 
+4) OPTIONAL - Initialize a local git repository (the SAFE Stack already includes a .gitignore file!):
+- `git init`
+
 Now we can open our new app in Visual Studio Code: 
 - `code .` - opens Visual Studio Code to the current folder.
 
-Note: If you haven't already installed the Ionide extension in Visual Studio Code, you should see a prompt in the bottom right corner to install the Recommended Extensions (which is Ionide). Do that.
+_NOTE: If you haven't already installed the Ionide extension in Visual Studio Code, you should see a prompt in the bottom right corner to install the Recommended Extensions (which is Ionide). Do that._
 
-After installing Ionide, you should now see a "SOLUTION EXPLORER" panel on the left that shows a "src" folder with your three SAFE Stack F# projects: 
+Assuming Ionide is installed, you should now see an Ionide tab that displays a "SOLUTION EXPLORER" panel on the left with a "src" folder with your three SAFE Stack F# projects: 
 - Shared.fsproj
 - Server.fsproj
 - Client.fsproj
@@ -54,14 +71,14 @@ After installing Ionide, you should now see a "SOLUTION EXPLORER" panel on the l
 - Open a new Terminal in Visual Studio Code
 - `dotnet run` 
 
-That's it! `dotnet run` will run the "Build.fsproj" project which contains FAKE build script tasks that will do the following automatically:
-- install NPM dependencies (React, and other js libraries)
-- It will start the Server component (the Web API)
-- It will start the Client component (the Fable.React front end)
+That's it! Entering `dotnet run` from the SafeTodo root folder will run the "Build.fsproj" project which contains FAKE build script tasks that will do the following automatically:
+- Install NPM dependencies (React, and other js libraries) if they are not yet installed
+-  Start the Server component (the Giraffe Web API) in watch mode
+- Start the Client component (the Fable.React front end) in watch mode
 
 You should be able to view the site in your browser using the port given after the build completes:
-http://127.0.0.1:8080/
-NOTE: The current SAFE Stack beta template incorrectly displays http://0.0.0.0:8080/ -- disregard this and use http://127.0.0.1:8080/ instead!
+http://localhost:8080/
+NOTE: The current SAFE Stack beta template displays http://0.0.0.0:8080, but I replaced that with http://localhost:8080.
 
 
 ## Creating a "SafeTodo" Database with Azure Data Studio
