@@ -40,8 +40,8 @@ Assuming you have already installed the .NET 5 CLI, run the command to install t
 2) Restore the command line tools that we will use to build and run our SAFE Stack application:
 - `dotnet tool restore` - this should install "paket", which is like NuGet but with some additional features, and the "fable" transpiler
 
-3) Restore NuGet dependencies for all projects in the solution:
-- `dotnet restore SafeTodo.sln`
+3) Restore NuGet dependencies:
+- `dotnet paket restore`
 
 Now we can open our new app in Visual Studio Code: 
 - `code .` - opens Visual Studio Code to the current folder.
@@ -133,11 +133,10 @@ In this step, we will use Azure Data Studio with the "SQL Database Projects" ext
 ## Create a TodoRepository Using the new SSDT provider in SQLProvider
 
 ### Installing SQLProvider from NuGet
-Next we will install SQLProvider to the Server project:
+Next we will install SQLProvider and System.Data.SqlClient to the Server project:
 - Open a new terminal
-- From the "SafeTodo" root folder: `dotnet paket add SQLProvider -p Server`* 
-- Hit `CTRL`+`SHIFT`+`P` to bring up the console
-- Find and select `Database Projects: Create Project from Database`
+- From the "SafeTodo" root folder: `dotnet paket add SQLProvider -p Server`
+- From the "SafeTodo" root folder: `dotnet paket add System.Data.SqlClient -p Server`
 
 ### Initialize Type Provider
 Next we will wire up our type provider to generate database types based on the compiled .dacpac file.
