@@ -224,17 +224,12 @@ open Fable.Remoting.Giraffe
 open Saturn
 open System
 open Shared
+open Microsoft.AspNetCore.Http
 
 let todosApi =
     let db = Database.createContext @"Data Source=.\SQLEXPRESS;Initial Catalog=SafeTodo;Integrated Security=SSPI;"
-    { getTodos = fun () -> 
-        async {
-            let! todos = TodoController.getTodos db
-            return todos
-        }
+    { getTodos = fun () -> TodoController.getTodos db
       addTodo = TodoController.addTodo db }
-
-open Microsoft.AspNetCore.Http
 
 let fableRemotingErrorHandler (ex: Exception) (ri: RouteInfo<HttpContext>) = 
     printfn "ERROR: %s" ex.Message
@@ -257,6 +252,13 @@ let app =
     }
 
 run app
-
 ```
+
+## Run the App!
+From the VS Code terminal in the SafeTodo folder, launch the app (server and client):
+`dotnet run`
+
+You should now be able to add todos.
+
+![image](https://user-images.githubusercontent.com/1030435/111055048-044f2080-8440-11eb-9efc-ae454ff071c4.png)
 
