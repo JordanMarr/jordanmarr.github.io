@@ -256,6 +256,7 @@ run app
 
 ## Run the App!
 From the VS Code terminal in the SafeTodo folder, launch the app (server and client):
+
 `dotnet run`
 
 You should now be able to add todos.
