@@ -49,7 +49,7 @@ Assuming you have already installed the .NET 5 CLI, run the command to install t
 ## Creating a SAFE Stack App
 1) Run the new "SAFE" template.
 - `dotnet new SAFE -o SafeTodo` - `-o` will create a "SafeTodo" subfolder witha  "SafeTodo.sln" solution file
-- `cd SafeTodo` - change to the new "SafeTodo" directory (on Windows)
+- `cd SafeTodo` - change to the new "SafeTodo" directory
 
 2) Restore the command line tools that we will use to build and run our SAFE Stack application:
 - `dotnet tool restore` - this should install "paket", which is like NuGet but with some additional features, and the "fable" transpiler
