@@ -1,4 +1,4 @@
-# SAFE Stack v3 with SQLProvider SSDT Tutorial
+# SAFE Stack v3 with SSDT Starter
 Posted on March 15, 2021
 
 Looking to create an F# powered React app using the new SAFE Stack v3, SQL Server and the new [SSDT F# Type Provider](https://jordanmarr.github.io/fsharp/ssdt-type-provider/)?
@@ -17,7 +17,7 @@ To get started, you will need the following:
 * Azure Data Studio
   * Extension: SQL Database Projects
 
-### The Stack
+## The Stack
 For the last two years, I have maintained a greenfield web app that is essentially a SAFE Stack app; it has been a joyful experience! My daily driver has been Visual Studio Professional which I have developed with since .NET v1.1. 
 I chose to write this post around VSCode + Ionide + Azure Data Studio because it is a cross platform stack, and I want to accommodate the many F# devs that are coming over from other backgrounds and other platforms. So this post was a learning experience for me as well!
 
