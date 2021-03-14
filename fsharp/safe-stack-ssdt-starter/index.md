@@ -132,9 +132,10 @@ CREATE TABLE [dbo].[Todos]
 
 ## Creating an SSDT Project (.sqlproj)
 At this point, you should have a SAFE Stack solution and a minimal "SafeTodo" SQL Server database with a "Todos" table.
-In this step, we will use Azure Data Studio with the "SQL Database Projects" extension to create a new SSDT (SQL Server Data Tools) "SQL Project" that will live in our SAFE Stack .sln. 
+Next, we will use Azure Data Studio with the "SQL Database Projects" extension to create a new SSDT (SQL Server Data Tools) .sqlproj that will live in our SAFE Stack .sln. 
 
 1) Install the "SQL Database Projects" extension.
+
 2) Right click the SafeTodo database and choose "Create Project From Database" (this option is added by the "SQL Database Projects" extension)
 
 ![image](https://user-images.githubusercontent.com/1030435/111041910-99cebe00-8408-11eb-9fcf-9271b40984d7.png)
