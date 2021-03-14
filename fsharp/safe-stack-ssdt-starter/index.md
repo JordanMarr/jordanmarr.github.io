@@ -151,12 +151,15 @@ module Database
 open FSharp.Data.Sql
 
 [<Literal>]
-let ssdtPath = @".\ssdt\SafeTodoDB\bin\Debug\SafeTodoDB.dacpac"
+let SsdtPath = __SOURCE_DIRECTORY__ + @"/../../ssdt/SafeTodoDB/bin/Debug/SafeTodoDB.dacpac"
+
+// TO RELOAD SCHEMA: 1) uncomment the line below; 2) save; 3) recomment; 4) save again and wait.
+//DB.GetDataContext().``Design Time Commands``.ClearDatabaseSchemaCache
 
 type DB = 
     SqlDataProvider<
         Common.DatabaseProviderTypes.MSSQLSERVER_SSDT, 
-        SsdtPath = ssdtPath,
+        SsdtPath = SsdtPath,
         UseOptionTypes = true
     >
 
