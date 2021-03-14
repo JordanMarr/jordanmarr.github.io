@@ -29,15 +29,18 @@ While Fable 3 does have its own starter template, it only covers the front end.
 The SAFE Stack takes that and adds:
 - A backend web API powered by ASP.NET and Giraffe
 - A middle tier Shared project for entity models
-- An RPC-style communication via Fable.Remoting
-- A working webpack config
-- A FAKE powered build project that automates running and deploying your app. 
+- RPC-style communication via Fable.Remoting
+- A webpack config that wires up many useful web development options
+- A FAKE powered build project that automates running and deploying your app
 
 The new SAFE Stack v3 (currently in beta) supports Fable 3 and is available on NuGet.
+
 https://www.nuget.org/packages/SAFE.Template/
 
 Clicking on the link to the latest v3 link should give you the ".NET CLI" install command:
-As of now, it is: `dotnet new --install SAFE.Template::3.0.0-beta001`
+As of now, it is: 
+
+`dotnet new --install SAFE.Template::3.0.0-beta001`
 
 ![image](https://user-images.githubusercontent.com/1030435/110747226-0af55200-820c-11eb-959b-36091c140497.png)
 
@@ -45,7 +48,7 @@ Assuming you have already installed the .NET 5 CLI, run the command to install t
 
 ## Creating a SAFE Stack App
 1) Run the new "SAFE" template.
-- `dotnet new SAFE -o SafeTodo` - `-o' will create a "SafeTodo" subfolder witha  "SafeTodo.sln" solution file
+- `dotnet new SAFE -o SafeTodo` - `-o` will create a "SafeTodo" subfolder witha  "SafeTodo.sln" solution file
 - `cd SafeTodo` - change to the new "SafeTodo" directory (on Windows)
 
 2) Restore the command line tools that we will use to build and run our SAFE Stack application:
