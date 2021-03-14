@@ -1,4 +1,4 @@
-# Getting Started with the SAFE Stack and SQLProvider SSDT
+# SAFE Stack v3 with SQLProvider SSDT Tutorial
 Posted on March 15, 2021
 
 Looking create an F# powered front end React app for for a SQL Server database and you want to get started the easy way?
