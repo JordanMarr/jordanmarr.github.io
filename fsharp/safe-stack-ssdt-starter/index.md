@@ -96,7 +96,7 @@ NOTE: The current SAFE Stack beta template displays http://0.0.0.0:8080, but I r
 - Right click your server and choose "New Query"
 - Execute this script:
 
-``` sql
+```sql
 USE master
 GO
 IF NOT EXISTS (
@@ -160,7 +160,7 @@ Next we will wire up our type provider to generate database types based on the c
 
 1) In the Server project, create a new file, `Database.fs`. (this should be above `Server.fs`).
 
-``` fsharp
+```fsharp
 module Database
 open FSharp.Data.Sql
 
