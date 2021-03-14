@@ -431,4 +431,5 @@ If all things went well, you should now have a working SAFE Stack v3 app with a 
 ![image](https://user-images.githubusercontent.com/1030435/111082097-dec42480-84dc-11eb-8721-939a1ff2930c.png)
 
 
-The final source code for this tutorial will be posted on my GitHub account as "SafeTodo". Feel free to post in the issues if you have any issues, or hit me up on [Twitter](https://twitter.com/jordan_n_marr)!
+The companion code for this tutorial is posted on my GitHub account [here](https://github.com/JordanMarr/safe-stack-ssdt-starter). 
+Feel free to post any issues you encounter or just to leave a comment. Or hit me up on [Twitter](https://twitter.com/jordan_n_marr)!
