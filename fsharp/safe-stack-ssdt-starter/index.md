@@ -98,7 +98,7 @@ GO
 ```
 - Right click the "Databases" folder and choose "Refresh" to see the new database.
 
-NOTE: Alteratively, you can install the "New Database" extension in Azure Data Studio which gives you a "New Database" option when right clicking the "Databases" folder.
+_NOTE: Alternatively, if you don't want to manually create the new database, you can install the "New Database" extension in Azure Data Studio which gives you a "New Database" option when right clicking the "Databases" folder._
 
 ### Create a "Todos" Table
 ``` SQL
