@@ -48,7 +48,7 @@ Assuming you have already installed the .NET 5 CLI, run the command to install t
 
 ## Creating a SAFE Stack App
 1) Run the new "SAFE" template.
-- `dotnet new SAFE -o SafeTodo` - `-o` will create a "SafeTodo" subfolder witha  "SafeTodo.sln" solution file
+- `dotnet new SAFE -o SafeTodo` - `-o` will create a "SafeTodo" subfolder with a  "SafeTodo.sln" solution file
 - `cd SafeTodo` - change to the new "SafeTodo" directory
 
 2) Restore the command line tools that we will use to build and run our SAFE Stack application:
@@ -154,13 +154,13 @@ Next, we will use Azure Data Studio with the "SQL Database Projects" extension t
 ## Create a TodoRepository Using the new SSDT provider in SQLProvider
 
 ### Installing SQLProvider from NuGet
-Next we will install SQLProvider and System.Data.SqlClient to the Server project:
+Switching back to VSCode, we will install SQLProvider and System.Data.SqlClient to the Server project:
 - Open a new terminal
 - From the "SafeTodo" root folder: `dotnet paket add SQLProvider -p Server`
 - From the "SafeTodo" root folder: `dotnet paket add System.Data.SqlClient -p Server`
 
 ### Initialize Type Provider
-Next we will wire up our type provider to generate database types based on the compiled .dacpac file.
+Next, we will wire up our type provider to generate database types based on the compiled .dacpac file.
 
 1) In the Server project, create a new file, `Database.fs`. (this should be above `Server.fs`).
 
