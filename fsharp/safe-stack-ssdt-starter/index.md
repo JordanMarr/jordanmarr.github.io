@@ -55,7 +55,7 @@ Assuming you have already installed the .NET 5 CLI, run the command to install t
 - `dotnet tool restore` - this should install "paket", which is like NuGet but with some additional features, and the "fable" transpiler
 
 3) Restore NuGet dependencies:
-- `dotnet paket restore`
+- `dotnet restore SafeTodo.sln`
 
 4) OPTIONAL - Initialize a local git repository (the SAFE Stack already includes a .gitignore file!):
 - `git init`
