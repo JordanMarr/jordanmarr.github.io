@@ -429,6 +429,19 @@ Now for rendering the todos, we want to
                     ]
 ```
 
+## Debugging
+SAFE Stack v2 allowed you to debug both the client and server via VSCode out-of-the-box. However, SAFE Stack v3 is currently in beta, so the configuration required to do this is not yet ready. We can still debug the server, but to do so, we need to manually launch the server and client separately.
+
+### Launch the Server in Debug Mode
+- Hover over the Server project in Ionide will display a "Debug" button. Click this to start the Server in debug mode.
+- After the server starts,  you will be able to add debug breakpoints
+
+### Launch the Client Manually
+- From a terminal window in the SafeTodo root directory, manually start Fable in watch mode:
+`fable watch src/Client --run webpack-dev-server`
+
+_NOTE: You can debug the transpiled JavaScript for the client via the browser's developer window._
+
 ## Wrapping Up
 If all things went well, you should now have a working SAFE Stack v3 app with a full data layer using the new SQLProvider SSDT type provider!
 
