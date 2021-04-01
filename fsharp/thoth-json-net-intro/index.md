@@ -147,7 +147,7 @@ let shipmentDecoder : Decoder<Shipment> =
     )
 ```
 
-Moving on to the `shipmentDecoder`, notice that instead of using `get.Required.Field`, we have switched to `get.Required.At`.  The difference is that `get.Required.At` takes a list of strings which allows you to drill into a path of multiple levels, whereas `get.Required.Filed` just takes a single string that references a field at the current level.
+Moving on to the `shipmentDecoder`, notice that instead of using `get.Required.Field`, we have switched to `get.Required.At`.  The difference is that `get.Required.At` takes a list of strings which allows you to drill into a path of multiple levels, whereas `get.Required.Field` just takes a single string that references a field at the current level.
 The second thing to notice is that `Shipment.Recipient` uses `get.Optional` instead of `get.Required`. This will return an `option` value, so you must make sure that you are mapping the value into an `option` field. 
 
 #### Order Decoder
