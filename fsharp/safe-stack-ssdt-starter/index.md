@@ -471,7 +471,7 @@ Here are the steps to accomplish this:
 #endif
 ```
 
-* This assumes that your SSDT .sqlproj will be built in Release mode. (You can do this manually, but I usually employee a FAKE build script to handle this.)
+* This assumes that your SSDT .sqlproj will be built in Release mode. (You can build it manually, but I usually employee a FAKE build script to handle this.)
 
 ## Wrapping Up
 If all things went well, you should now have a working SAFE Stack v3 app with a full data layer using the new SQLProvider SSDT type provider!
