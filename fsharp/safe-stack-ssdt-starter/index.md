@@ -448,7 +448,7 @@ When creating a Release build for deployment, it is important to note that SQLPr
 
 Here are the steps to accomplish this:
 
-* Modify your Server.fsproj to include the .dacpac file with "CopyToOutputDirectory" to ensure that the .dacpac file will always exist in the app binaries.
+* Modify your Server.fsproj to include the .dacpac file with "CopyToOutputDirectory" to ensure that the .dacpac file will always exist in the Server project bin folder.
 
 ```
 <ItemGroup>
