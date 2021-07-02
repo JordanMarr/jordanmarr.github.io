@@ -33,14 +33,14 @@ The SAFE Stack takes that and adds:
 - A webpack config that wires up many useful web development options
 - A FAKE powered build project that automates running and deploying your app
 
-The new SAFE Stack v3 (currently in beta) supports Fable 3 and is available on NuGet.
+The new SAFE Stack v3 (~~currently in beta~~) supports Fable 3 and is available on NuGet.
 
 https://www.nuget.org/packages/SAFE.Template/
 
 Clicking on the link to the latest v3 link should give you the ".NET CLI" install command:
 As of now, it is: 
 
-`dotnet new --install SAFE.Template::3.0.0-beta001`
+`dotnet new --install SAFE.Template::3.0.1`
 
 ![image](https://user-images.githubusercontent.com/1030435/110747226-0af55200-820c-11eb-959b-36091c140497.png)
 
