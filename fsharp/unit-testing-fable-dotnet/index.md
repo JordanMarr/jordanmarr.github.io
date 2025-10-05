@@ -1,5 +1,5 @@
 # Tips for Unit Testing Fable Apps using .NET
-March 15, 2021
+March 15, 2025
 
 While there are front-end testing frameworks for Fable like Fable.Mocha, I generally prefer unit testing my Fable logic using .NET instead.
 
@@ -73,10 +73,10 @@ module Cmd =
     open Elmish
 
     let private onFail ex = failwith "toast failed"
-    let info msg = Cmd.OfFunc.attempt info msg onFail
-    let success msg = Cmd.OfFunc.attempt success msg onFail
-    let error msg = Cmd.OfFunc.attempt error msg onFail
-    let warn msg = Cmd.OfFunc.attempt warn msg onFail
+    let info msg = Cmd.OfFunc.attempt Toastify.info msg onFail
+    let success msg = Cmd.OfFunc.attempt Toastify.success msg onFail
+    let error msg = Cmd.OfFunc.attempt Toastify.error msg onFail
+    let warn msg = Cmd.OfFunc.attempt Toastify.warn msg onFail
 ```
 
 Which can be called like this:
