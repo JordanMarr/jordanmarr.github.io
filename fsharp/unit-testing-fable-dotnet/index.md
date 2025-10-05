@@ -64,6 +64,24 @@ module ServerApi =
 
 There is nothing preventing you from making impure calls to JS browser-specific functions in your Elmish handlers. For example, you may call `Toastify.info "Save complete."` at the end of your `Msg.Save` handler. While this is convenient, this binding function will fail when executed in the context of a .NET unit test.
 
+```fsharp
+match msg with
+
+| SaveCompleted result ->
+    match result with
+    | Ok () ->
+        Toastify.success "Save completed."
+        model, Cmd.none
+    | Error err ->
+        match err with
+        | ForgeNeedsAuthorization ->
+            Toastify.error "Must be logged into BIM 360."
+            model, Cmd.none
+        | GeneralError msg ->
+            Toastify.error msg
+            model, Cmd.none
+```
+
 ### The Solution: Custom Elmish Commands
 
 Commonly used impure functions like toast messages can be turned into custom Elmish `Cmd` handlers:
@@ -87,8 +105,7 @@ match msg with
 | SaveCompleted result ->
     match result with
     | Ok () ->
-        Toastify.success "Save completed."
-        init () // Reset page
+        model, Cmd.success "Save completed."
     | Error err ->
         match err with
         | ForgeNeedsAuthorization ->
