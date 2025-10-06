@@ -11,7 +11,7 @@ However, there are some pitfalls that will prevent you from being able to test y
 
 While I tend to start with the model and view combined into one file for convenience, this will usually cause problems when testing if your view code contains any React specific JS functions that will fail on the .NET side.
 
-This can be resolved by splitting the Elmish model, init and update functions into separate files. That way, your .NET unit tests only need to reference the model file.
+This can be resolved by splitting the Elmish code (model, init and update functions) and the Page View code into separate files. That way, your .NET unit tests only need to reference the model file.
 
 Ex: 
 * TimeSheetModel.fs - contains Elmish `Model` type, `init` and `update` functions.
@@ -19,9 +19,9 @@ Ex:
 
 ## Stub Your Fable.Remoting API
 
-If you are using Fable.Remoting for strongly typed access to your endpoints (highly recommended!), you will likely have an `api` binding in your Fable project to access your Fable.Remoting endpoints. This will cause your .NET unit test code to fail.
+If you are using Fable.Remoting for strongly typed access to your endpoints (highly recommended!), you will likely have an `api` binding in your Fable project endpoints. This will cause your .NET unit test code to fail.
 
-The solution is to use the `FABLE_COMPILER` directive to create a stub of your Fable.Remoting server API bindings:
+The solution is to use the `FABLE_COMPILER` processor directive to create a stub of your Fable.Remoting server API bindings for use with your .NET tests:
 
 ```fsharp
 /// Provides the server side api.
