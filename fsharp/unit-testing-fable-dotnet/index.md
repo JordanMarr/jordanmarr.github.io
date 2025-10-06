@@ -122,7 +122,7 @@ This pattern converts the "impure" IO functions into declarative instructions th
 [<Test>]
 let ``Test Save Completed Handler`` () =
     // Prepare model
-    let model, _ = DrawingLogPage.init ()
+    let model, _ = DrawingLogPage.init (Ok ())
     let saveCompletedMsg = Msg.SaveCompleted ()
     // Simulate saving, ignoring the Cmd array.
     let model, _ = DrawingLogPage.update saveCompletedMsg model
