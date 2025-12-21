@@ -1,4 +1,7 @@
 # Site Settings
+title: Jordan Marr's Blog
+description: F# and functional programming
+
 #remote_theme: jekyll/minima
 
 minima:
