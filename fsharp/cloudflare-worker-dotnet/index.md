@@ -218,4 +218,4 @@ And hey, if you're a C# developer who clicked on this post because it said ".NET
 - [CloudflareFS on GitHub](https://github.com/speakeztech/CloudflareFS/)
 - [Fable Compiler](https://fable.io/)
 - [Cloudflare Workers](https://workers.cloudflare.com/)
-- [F# Advent 2025](https://sergeytihon.com/2025/10/28/f-advent-calendar-in-english-2025/)
+- [F# Advent 2025](https://sergeytihon.com/2025/11/30/f-weekly-48-2025-fsadvent-starts-dec-1st/)
