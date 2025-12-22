@@ -17,3 +17,8 @@ $max-width: 1400px !default;
 pre.highlight {
   overflow-x: auto;
 }
+
+/* Add spacing before social links when bio is hidden */
+.author__urls-wrapper {
+  margin-top: 1em;
+}
