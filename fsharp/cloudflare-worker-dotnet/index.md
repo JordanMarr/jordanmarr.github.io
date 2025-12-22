@@ -3,7 +3,7 @@
 
 *This post is part of the [F# Advent 2025](https://sergeytihon.com/2025/10/28/f-advent-calendar-in-english-2025/) event hosted by Sergey Tihon. Thanks, Sergey!*
 
-Cloudflare Workers is an incredibly compelling serverless platform: fast cold starts, generous free tier (100K requests/month), no credit card required, and a frictionless deployment experience. There's just one problem—it's a JavaScript platform with no .NET SDK.
+Cloudflare Workers is an incredibly compelling serverless platform: fast cold starts, generous free tier (100K requests/day), no credit card required, and a frictionless deployment experience. There's just one problem—it's a JavaScript platform with no .NET SDK.
 
 ...or is there?
 
