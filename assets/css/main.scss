@@ -1,0 +1,33 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Increase max width before importing theme */
+$max-width: 1400px !default;
+
+@import "minimal-mistakes/skins/dark";
+@import "minimal-mistakes";
+
+/* Wider content area - reduce sidebar dominance */
+.sidebar {
+  @include breakpoint($large) {
+    width: 200px;
+  }
+}
+
+.page {
+  width: 100%;
+}
+
+/* Ensure code blocks can use full width with horizontal scroll */
+div.highlighter-rouge,
+figure.highlight {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+pre.highlight {
+  overflow-x: auto;
+}

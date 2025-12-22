@@ -1,5 +1,5 @@
 # Site Settings
-title: Jordan Marr's Blog
+title: Jordan Marr
 subtitle: F# and functional programming
 description: A blog about F#, Fable, and functional programming in .NET
 url: https://jordanmarr.github.io
@@ -18,9 +18,9 @@ plugins:
 # Author
 author:
   name: "Jordan Marr"
-  bio: ".NET developer since 1.1. F# enthusiast since 2018."
+  bio: ".NET developer since 1.0. F# enthusiast since 2018."
   links:
-    - label: "X"
+    - label: "Twitter/X"
       icon: "fab fa-fw fa-x-twitter"
       url: "https://x.com/jordan_n_marr"
     - label: "Bluesky"
