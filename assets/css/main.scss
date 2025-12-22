@@ -4,30 +4,16 @@
 
 @charset "utf-8";
 
-/* Increase max width before importing theme */
+/* Widen the overall page layout */
+$right-sidebar-width-narrow: 150px !default;
+$right-sidebar-width: 200px !default;
+$right-sidebar-width-wide: 250px !default;
 $max-width: 1400px !default;
 
 @import "minimal-mistakes/skins/dark";
 @import "minimal-mistakes";
 
-/* Wider content area - reduce sidebar dominance */
-.sidebar {
-  @include breakpoint($large) {
-    width: 200px;
-  }
-}
-
-.page {
-  width: 100%;
-}
-
-/* Ensure code blocks can use full width with horizontal scroll */
-div.highlighter-rouge,
-figure.highlight {
-  margin-left: 0;
-  margin-right: 0;
-}
-
+/* Ensure code blocks scroll horizontally */
 pre.highlight {
   overflow-x: auto;
 }
