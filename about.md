@@ -1,4 +1,7 @@
-# About
+---
+title: "About"
+permalink: /about/
+---
 
 I've been a .NET developer since the early days of .NET 1.1. In 2018, I discovered F# and fell in love with functional programming. I've been using F# in a professional context ever since.
 

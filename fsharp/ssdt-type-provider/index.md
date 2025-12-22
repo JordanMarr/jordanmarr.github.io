@@ -1,5 +1,13 @@
-# SSDT Type Provider
-*Posted on Dec 21, 2020*
+---
+title: "SSDT Type Provider"
+date: 2020-12-21
+categories:
+  - F#
+tags:
+  - fsharp
+  - ssdt
+  - sqlprovider
+---
 
 I'm very happy to announce that my PR to add SSDT support to SQLProvider has been merged and the new release is now available on [NuGet](https://www.nuget.org/packages/SQLProvider/)!  🎉
 

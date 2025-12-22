@@ -1,27 +1,50 @@
 # Site Settings
 title: Jordan Marr's Blog
-description: F# and functional programming
-
-#remote_theme: jekyll/minima
-
-minima:
-  skin: solarized-dark
-  social_links:
-    twitter: jordan_n_marr
-    github: JordanMarr
-
-dash:  
-    social_links:
-        - url: https://twitter.com/jordan_n_marr
-          icon: twitter-square
-          color: cyan
-        - url: https://github.com/JordanMarr
-          icon: github-square
-          color: purple
-
-theme: jekyll-theme-midnight
-
+subtitle: F# and functional programming
+description: A blog about F#, Fable, and functional programming in .NET
 url: https://jordanmarr.github.io
 
+# Theme
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin: "dark"
+
+# Plugins
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Author
+author:
+  name: "Jordan Marr"
+  bio: ".NET developer since 1.1. F# enthusiast since 2018."
+  links:
+    - label: "X"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/jordan_n_marr"
+    - label: "Bluesky"
+      icon: "fas fa-fw fa-cloud"
+      url: "https://bsky.app/profile/jordanmarr.bsky.social"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/JordanMarr"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: true
+
+# Reading
+read_time: true
+words_per_minute: 200

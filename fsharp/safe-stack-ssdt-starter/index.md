@@ -1,5 +1,13 @@
-# SAFE Stack v3 with SSDT Starter
-Posted on March 15, 2021
+---
+title: "SAFE Stack v3 with SSDT Starter"
+date: 2021-03-15
+categories:
+  - F#
+tags:
+  - fsharp
+  - safe-stack
+  - ssdt
+---
 
 Looking to create an F# powered React app using the new SAFE Stack v3, SQL Server and the new [SSDT F# Type Provider](https://jordanmarr.github.io/fsharp/ssdt-type-provider/)?
 Then you're in luck! This post will provide a step-by-step tutorial to get you up and running.

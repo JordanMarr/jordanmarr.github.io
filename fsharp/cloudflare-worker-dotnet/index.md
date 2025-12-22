@@ -1,7 +1,15 @@
-# Create a Cloudflare Worker in .NET?!
-*Posted on December 22, 2025*
+---
+title: "Create a Cloudflare Worker in .NET?!"
+date: 2025-12-22
+categories:
+  - F#
+tags:
+  - fsharp
+  - fable
+  - cloudflare
+---
 
-*This post is part of the [F# Advent 2025](https://sergeytihon.com/2025/10/28/f-advent-calendar-in-english-2025/) event hosted by Sergey Tihon. Thanks, Sergey!*
+*This post is part of the [F# Advent 2025](https://sergeytihon.com/2025/11/30/f-weekly-48-2025-fsadvent-starts-dec-1st/) event hosted by Sergey Tihon. Thanks, Sergey!*
 
 Cloudflare Workers is an incredibly compelling serverless platform: fast cold starts, generous free tier (100K requests/month), no credit card required, and a frictionless deployment experience. There's just one problem—it's a JavaScript platform with no .NET SDK.
 

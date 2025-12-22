@@ -1,4 +1,13 @@
-# Introduction to Thoth.Json.Net
+---
+title: "Introduction to Thoth.Json.Net"
+date: 2021-01-27
+categories:
+  - F#
+tags:
+  - fsharp
+  - thoth
+  - json
+---
 
 Thoth.Json.Net has become the first tool I reach for when I need to map incoming json (that I did not author) to types in F#. 
 

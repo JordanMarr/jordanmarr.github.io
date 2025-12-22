@@ -1,5 +1,13 @@
-# Tips for Unit Testing Fable Apps using .NET
-October 5, 2025
+---
+title: "Tips for Unit Testing Fable Apps using .NET"
+date: 2025-10-05
+categories:
+  - F#
+tags:
+  - fsharp
+  - fable
+  - testing
+---
 
 While there are front-end testing frameworks for Fable like Fable.Mocha, I generally prefer unit testing my Fable logic using .NET instead.
 
